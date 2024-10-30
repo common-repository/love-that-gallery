@@ -1,0 +1,242 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+	The outer container of the slider, here is where the background color is set by JS later on
+*/
+#containerSettings {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 600px;
+  height: 145px;
+  background: #000;
+  z-index:1;
+  overflow:hidden;
+  font-family: "Georgia", serif;
+}
+
+
+/*
+  The gallery div that contains all the images
+  We'll set the width dynamically in the JavaScript as the images load
+*/
+
+#gallery {
+	width: 50px;
+	height: 300px;        /* was 700 */
+	padding: 50px 0;
+	position: absolute;
+	overflow: hidden;
+	left: auto;
+	z-index: 1;
+	
+	
+}
+
+/*
+  Individual slides within the gallery:
+
+  Float them left so that they're all side by side
+  Fixed height (the width will vary as required)
+  Add some horizontal margin between the slides
+  Add a bottom fading reflection for WebKit browsers
+*/
+
+#gallery img {
+  float: left;
+  height: 100px;   /* TODO: USER CAN CHANGE THIS VALUE was 600 */ 
+   margin: 0 25px;      /* Adjust the left/right margin to show greater or fewer slides at once WAS 100 */
+  overflow:hidden;
+ /* -webkit-box-reflect:    You can uncomment this to show a reflection, it will do it for all the slider images
+    below
+    0
+    -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(1, rgba(255, 255, 255, .5)),
+      color-stop(.8, rgba(255, 255, 255, 0))
+    ); */
+}
+
+
+/*
+  Left and right buttons:
+
+  Position them on the left and right sides of the gallery
+  Stretch them to the height of the gallery
+  Hide them by default
+*/
+
+#leftButton, #rightButton {
+  position: absolute;
+  z-index: 2;
+  top: 60px; /* was -100 */
+  bottom: 0; /*was 0 */
+  padding: 0;
+  margin: auto 0; 
+  width: 10%;
+  height: 600px;        /* gets set by jquery to containerSettings height*/
+  border: none;
+  outline: none;
+  color: #fff;
+  background: transparent url(images/blank.gif);
+  font-size: 50px; /* was 100 */
+  font-family: "Courier New", courier, fixed;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  transition: opacity .5s;
+
+}
+
+#leftButton {
+  left: 0;
+}
+
+#rightButton {
+  right: 0;
+}
+
+/* (Turn off dotted black outline on FF3) */
+
+#leftButton::-moz-focus-inner, #rightButton::-moz-focus-inner {
+  border: none;
+}
+
+/*
+  Left and right button hover states:
+  Fade them in to 50% opacity
+*/
+
+#leftButton:hover, #rightButton:hover {
+  opacity: .5;
+  filter: alpha(opacity=50);
+  outline: none;
+}
+
+
+/*
+  Image caption:
+  Position just under the centre image
+  Hide by default
+*/
+
+#caption {
+  position: absolute;
+  z-index: 2;
+  bottom: 0px; /*was 290 */
+  left:0;
+  width: 107%; /*was 100% */
+  color: #ffc;
+  text-align: center;
+  font-family: "Georgia", serif;
+  font-size: 24px;
+  letter-spacing: .1em;
+  display: none;
+}
+
+
+/*
+  Loading text:
+
+  Position in the centre of the gallery container
+  Hide by default
+*/
+
+#loading {
+  position: absolute;
+  z-index: 1;
+  bottom: 50%;
+  width: 100%;
+  color: #ffc;
+  text-align: center;
+  font-family: "Georgia", serif;
+  font-size: 36px;
+  letter-spacing: .1em;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+/**************************************************************************
+
+					Grid Gallery CSS Settings
+
+***************************************************************************/
+
+
+
+/* The CSS for the grid version of the plugin
+ * gridGallery is the outside container for the images
+ */
+#gridGallery {
+	position: relative;
+	background: #FFF;
+	z-index: 1;
+	
+	
+}
+
+#gridGallery img {
+	height: 100px;
+	width: 100px;
+}
+
+#gridGallery a {
+	position: relative;
+	margin-left:auto;
+	margin-right:auto;
+	width: 100%;
+	top: 3px;	
+}
+
+/**
+* force the cols to not have stupid lines inbetween
+*/
+
+
+.entry-content td,
+.comment-content td {
+	border-top: 0px solid #ddd;
+	padding: 0px 0px 0px 0;
+}
+
+#content tr td{
+	border-top: 0px solid #ddd;
+	padding: 0px 0px 0px 0;
+}
+</style>
+
+
+<!-- IE7 positions the buttons incorrectly; compensate -->
+
+<!--[if lt IE 8]>
+<style>
+#leftButton, #rightButton {
+  top: 50px;
+}
+/**************************************************************************
+
+					Admin Page CSS Settings
+
+***************************************************************************/
+
+
+
+#adminPage
+{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 600px;
+  height: 800px;
+  background: #FFF;
+  z-index:1;
+  overflow:hidden;
+  font-family: "Georgia", serif;	
+}
+
+
